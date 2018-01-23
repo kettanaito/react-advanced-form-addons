@@ -12,7 +12,7 @@ module.exports = {
   externals: {
     react: 'umd react',
     immutable: 'umd immutable',
-    'react-advanced-form': 'umd reactAdvancedForm'
+    'react-advanced-form': 'umd react-advanced-form'
   },
   output: {
     path: __dirname,
@@ -23,7 +23,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.BABEL_ENV': JSON.stringify(process.env.BABEL_ENV)
     }),
     PRODUCTION && new BabelMinifyPlugin({
       removeConsole: true,
@@ -31,8 +32,7 @@ module.exports = {
         topLevel: true,
         keepFnName: true
       }
-    }),
-    new webpack.NoEmitOnErrorsPlugin()
+    })
   ].filter(Boolean),
   module: {
     rules: [
@@ -44,21 +44,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: DEVELOPMENT,
-              presets: [
-                ['env', {
-                  modules: DEVELOPMENT && 'commonjs',
-                  targets: {
-                    browsers: 'last 2 versions'
-                  }
-                }],
-                'react'
-              ],
-              plugins: [
-                'transform-export-extensions',
-                'transform-class-properties',
-                'transform-object-rest-spread'
-              ]
+              cacheDirectory: DEVELOPMENT
             }
           },
           {

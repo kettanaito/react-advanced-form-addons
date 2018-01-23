@@ -6,8 +6,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require babel-core/register --require babel-polyfill",
-    "build": "NODE_ENV=production webpack",
-    "prepublishOnly": "npm run build && npm test"
+    "build": "NODE_ENV=production BABEL_ENV=production webpack",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -53,10 +53,12 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
+    "immutable": "^3.8.2",
     "jsdom": "^11.6.0",
     "mocha": "^5.0.0",
     "react": "^16.2.0",
     "react-advanced-form": "^0.16.1",
+    "react-dom": "^16.2.0",
     "webpack": "^3.10.0"
   }
 }
