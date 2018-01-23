@@ -29,8 +29,7 @@
   },
   "homepage": "https://github.com/kettanaito/react-advanced-form-addons#readme",
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-advanced-form": "^0.16.1"
+    "react": "^15.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
