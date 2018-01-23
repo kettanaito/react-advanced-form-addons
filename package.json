@@ -2,9 +2,12 @@
   "name": "react-advanced-form-addons",
   "version": "1.0.0",
   "description": "Form prototyping tools for React Advanced Form. Tailor forms like you mean it.",
-  "main": "build/index.js",
+  "module": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha --require babel-core/register --require babel-polyfill",
+    "build": "NODE_ENV=production webpack",
+    "prepublishOnly": "npm run build && npm test"
   },
   "repository": {
     "type": "git",
@@ -24,5 +27,36 @@
   "bugs": {
     "url": "https://github.com/kettanaito/react-advanced-form-addons/issues"
   },
-  "homepage": "https://github.com/kettanaito/react-advanced-form-addons#readme"
+  "homepage": "https://github.com/kettanaito/react-advanced-form-addons#readme",
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-advanced-form": "^0.16.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.5.1",
+    "jsdom": "^11.6.0",
+    "mocha": "^5.0.0",
+    "react": "^16.2.0",
+    "react-advanced-form": "^0.16.1",
+    "webpack": "^3.10.0"
+  }
 }

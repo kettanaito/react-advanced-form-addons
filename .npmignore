@@ -1,1 +1,4 @@
 src
+webpack*
+.gitignore
+test
