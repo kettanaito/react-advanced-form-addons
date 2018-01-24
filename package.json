@@ -6,8 +6,10 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require babel-core/register --require babel-polyfill",
+    "storybook": "start-storybook -p 6006",
     "build": "NODE_ENV=production BABEL_ENV=production webpack",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,9 @@
     "react-advanced-form": "^0.17.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.10",
+    "@storybook/addon-links": "^3.3.10",
+    "@storybook/react": "^3.3.10",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
@@ -59,6 +64,11 @@
     "react": "^16.2.0",
     "react-advanced-form": "^0.17.7",
     "react-dom": "^16.2.0",
+    "storybook": "^1.0.0",
+    "styled-components": "^3.0.2",
     "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "feather-icons": "^4.5.0"
   }
 }

@@ -1,4 +1,8 @@
-src
+# Configurations
 webpack*
 .gitignore
+
+# Build files
+src
 test
+stories
