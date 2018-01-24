@@ -1,5 +1,5 @@
 import React from 'react';
-import { connectField } from 'react-advanced-form';
+import { createField, fieldPresets } from 'react-advanced-form';
 
 function Checkbox({ fieldProps }) {
   return (<input { ...fieldProps } />);
@@ -7,14 +7,4 @@ function Checkbox({ fieldProps }) {
 
 Checkbox.displayName = 'Checkbox';
 
-export default connectField({
-  valuePropName: 'checked',
-  mapPropsToField: ({ props: { checked }, fieldRecord }) => ({
-    ...fieldRecord,
-    type: 'checkbox',
-    initialValue: checked
-  }),
-  enforceProps: (props, contextProps) => ({
-    checked: contextProps.get('checked')
-  })
-})(Checkbox);
+export default createField(fieldPresets.checkbox)(Checkbox);

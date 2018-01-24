@@ -1,9 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { defer } from '../../common';
+import { defer } from '../common';
 import { Form } from 'react-advanced-form';
-import { Input } from '../../../lib';
+import { Input } from '../../lib';
 
 describe('Field', function () {
   it('Allows undefined "initialValue"', () => {

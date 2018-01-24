@@ -1,5 +1,5 @@
 import React from 'react';
-import { connectField } from 'react-advanced-form';
+import { createField, fieldPresets } from 'react-advanced-form';
 
 function Select({ children, fieldProps }) {
   return (
@@ -11,9 +11,4 @@ function Select({ children, fieldProps }) {
 
 Select.displayName = 'Select';
 
-export default connectField({
-  mapPropsToField: ({ fieldRecord, props: { children, initialValue } }) => ({
-    ...fieldRecord,
-    initialValue: initialValue || (children && children[0].value)
-  })
-})(Select);
+export default createField(fieldPresets.select)(Select);
