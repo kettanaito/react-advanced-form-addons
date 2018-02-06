@@ -1,6 +1,6 @@
 import React from 'react';
 import feather from 'feather-icons';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { dash } from './animations';
 
 export const defaultOptions = {
@@ -26,4 +26,4 @@ export default function Icon({ name, animated, ...options }) {
   return (
     <IconContainer animated={ animated } dangerouslySetInnerHTML={{ __html: svg }} />
   );
-};
+}

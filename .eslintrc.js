@@ -23,11 +23,12 @@ module.exports = {
   },
   rules: {
     'strict': [2, 'never'],
+    'indent': 0,
     'no-console': 0,
     'max-len': [1, 120, {
-      ignoreStrings: true,
-      ignoreComments: true,
-      ignoreTemplateLiterals: true
+      "ignoreStrings": true,
+      "ignoreComments": true,
+      "ignoreTemplateLiterals": true
     }],
     'consistent-return': 0,
     'array-callback-return': 0,
@@ -43,6 +44,8 @@ module.exports = {
     'class-methods-use-this': 0,
     'no-prototype-builtins': 0,
     'no-await-in-loop': 0,
+    'no-confusing-arrow': 0,
+    'function-paren-newline': 0,
 
     /* React */
     'react/jsx-uses-react': 2,

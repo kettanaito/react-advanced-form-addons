@@ -1,5 +1,5 @@
 export const black = '#313d73';
-export const gray = '#aaa';
+export const gray = '#777';
 export const grayLight = '#eee';
 
 export const primary = '#00afe8';
