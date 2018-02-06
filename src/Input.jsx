@@ -85,7 +85,7 @@ const ValidationStatus = styled.div`
   &:before {
     position: absolute;
     content: '';
-    height: 25px;
+    height: 23px;
     width: 1px;
     background-color: ${({ valid, invalid }) => (
       (valid && 'rgba(0, 191, 97, .25)') ||
@@ -111,7 +111,7 @@ const Message = styled.p`
 `;
 
 function Input(props) {
-  const { name, label, disabled, fieldProps, fieldState } = props;
+  const { innerRef, name, label, disabled, fieldProps, fieldState } = props;
   const { validating, validatedAsync, valid, invalid, error } = fieldState;
 
   return (
@@ -128,6 +128,7 @@ function Input(props) {
       <InputWrapper validating={ validating } validatedAsync={ validatedAsync }>
         <StyledInput
           { ...fieldProps }
+          innerRef={ innerRef }
           fieldState={ fieldState }
           disabled={ validating || disabled }
           autoComplete="off" />
@@ -163,6 +164,62 @@ function Input(props) {
   );
 }
 
-Input.displayName = 'Input';
+// class Input extends React.Component {
+//   static displayName = 'Input'
+
+//   render() {
+//     const { innerRef, name, label, disabled, fieldProps, fieldState } = this.props;
+//     const { validating, validatedAsync, valid, invalid, error } = fieldState;
+
+//     return (
+//       <InputContainer>
+//         { label && (
+//           <Label
+//             htmlFor={ name }
+//             valid={ valid }
+//             invalid={ invalid }>
+//             { label }
+//           </Label>
+//         ) }
+
+//         <InputWrapper validating={ validating } validatedAsync={ validatedAsync }>
+//           <StyledInput
+//             { ...fieldProps }
+//             innerRef={ innerRef }
+//             fieldState={ fieldState }
+//             disabled={ validating || disabled }
+//             autoComplete="off" />
+
+//           <ValidationStatus
+//             display={ valid || invalid }
+//             valid={ valid }
+//             invalid={ invalid }>
+//             { valid && (
+//               <Icon
+//                 animated
+//                 name="check"
+//                 height={ 14 }
+//                 width={ 14 }
+//                 stroke={ colors.success } />
+//             ) }
+
+//             { invalid && (
+//               <Icon
+//                 animated
+//                 name="x"
+//                 height={ 14 }
+//                 width={ 14 }
+//                 stroke={ colors.danger } />
+//             ) }
+//           </ValidationStatus>
+
+//         </InputWrapper>
+
+//         { invalid && error && (<Message>{ error }</Message>) }
+
+//       </InputContainer>
+//     );
+//   }
+// }
 
 export default createField()(Input);

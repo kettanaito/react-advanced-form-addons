@@ -1,7 +1,7 @@
 {
   "name": "react-advanced-form-addons",
   "version": "1.0.2",
-  "description": "Form prototyping tools for React Advanced Form. Tailor forms like you mean it.",
+  "description": "Tailor production-ready form prototypes like you mean it.",
   "module": "src/index.js",
   "main": "lib/index.js",
   "scripts": {
