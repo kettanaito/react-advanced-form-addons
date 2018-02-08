@@ -13,6 +13,9 @@ export default class Example extends React.Component {
           <option value="male">Male</option>
           <option value="female">Female</option>
         </Select>
+
+        <Radio name="newRadio" label="Book" value="book" />
+        <Radio name="newRadio" label="Cheese" value="cheese" />
       </Form>
     );
   }

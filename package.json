@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require babel-core/register --require babel-polyfill",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6008",
     "build": "NODE_ENV=production BABEL_ENV=production webpack",
     "prepublishOnly": "npm run build",
     "build-storybook": "build-storybook"

@@ -21,13 +21,14 @@ flex-wrap: wrap;
   content: '';
   height: 0;
   display: block;
-  background-color: ${colors.primary};
+  background-color: ${colors.grayLight};
 }
 
 ${({ validating }) => validating && `
   &:after {
     height: 2px;
     animation: ${animations.loadStripe} 8s ease forwards;
+    background-color: ${colors.primary};
   }
 `}
 `;

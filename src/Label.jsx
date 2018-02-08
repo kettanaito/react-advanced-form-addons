@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors, font } from './const';
 
 const Label = styled.label`
-display: block;
+display: ${({ inline }) => !inline && 'block'};
 margin-bottom: .3rem;
 color: ${colors.gray};
 ${font.default};
