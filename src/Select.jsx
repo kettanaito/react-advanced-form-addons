@@ -1,7 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import { createField, fieldPresets } from 'react-advanced-form';
 import Label from './Label';
-import styled from 'styled-components';
 import { colors, font } from './const';
 
 const SelectWrapper = styled.span`
