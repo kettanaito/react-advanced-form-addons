@@ -12,7 +12,8 @@ describe('General', function () {
       'Select',
       'Checkbox',
       'Radio',
-      'Textarea'
+      'Textarea',
+      'Button'
     ])
   });
 });

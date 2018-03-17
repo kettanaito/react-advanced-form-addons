@@ -1,5 +1,5 @@
 import React from 'react';
-import { createField } from 'react-advanced-form';
+import { createField, fieldPresets } from 'react-advanced-form';
 import styled from 'styled-components';
 import Label from './Label';
 import { Icon, colors, font, animations } from './const';
@@ -156,4 +156,4 @@ function Input(props) {
   );
 }
 
-export default createField()(Input);
+export default createField(fieldPresets.input)(Input);

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors, font } from './const';
 
 const Label = styled.label`
-display: ${({ inline }) => !inline && 'block'};
+display: ${({ inline }) => !inline ? 'block' : undefined};
 margin-bottom: .3rem;
 color: ${colors.gray};
 ${font.default};
