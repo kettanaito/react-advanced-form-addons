@@ -1,5 +1,5 @@
 # React Advanced Form Addons
-A collection of tools for fast form prototyping using [React Advanced Form](https://github.com/kettanaito/react-advanced-form).
+A collection of tools dedicated for fast form prototyping using [React Advanced Form](https://github.com/kettanaito/react-advanced-form).
 
 ## Getting started
 
@@ -14,7 +14,7 @@ npm install react-advanced-form-addons --save
 yarn install react-advanced-form-addons
 ```
 
-> **Note:** You would need to have `react-advanced-form` installed as a peer dependency in order to use this package.
+> **Note:** You would need to have [`react-advanced-form`](https://github.com/kettanaito/react-advanced-form) installed as a peer dependency in order to use this package.
 
 ### Prototype!
 ```jsx
@@ -25,9 +25,13 @@ import { Input, Select } from 'react-advanced-form-addons';
 export default class Example extends React.Component {
   render() {
     return (
-      <Form action={ ... }>
-        <Input name="username" required />
-        <Select name="role" required>
+      <Form>
+        <Input
+          name="username"
+          required />
+        <Select
+          name="role"
+          required>
           <option value="admin">Administrator</option>
           <option value="editor">Editor</option>
         </Select>
