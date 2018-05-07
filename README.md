@@ -10,6 +10,7 @@ A collection of tools dedicated for fast form prototyping using [React Advanced 
 * `Textarea`
 
 ### Other
+* `Label`
 * `Button`
 
 ## Getting started

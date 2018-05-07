@@ -45,16 +45,16 @@ ${({ focused }) => focused && `
     stroke: ${colors.primary};
   }
 `}
-`
+`;
 
 const CheckboxContainer = styled.div`
 margin-bottom: 1rem;
-`
+`;
 
 const StyledInput = styled.input`
 position: absolute;
 opacity: 0;
-`
+`;
 
 function Checkbox({ fieldProps, fieldState, label }) {
   const { id, name, checked, required } = fieldProps;

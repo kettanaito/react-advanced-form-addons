@@ -4,4 +4,5 @@ export Checkbox from './Checkbox';
 export Select from './Select';
 export Textarea from './Textarea';
 
+export Label from './Label';
 export Button from './Button';
