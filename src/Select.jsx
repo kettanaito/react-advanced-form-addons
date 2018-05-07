@@ -28,11 +28,11 @@ const StyledSelect = styled.select`
 -webkit-border-radius: 0px;
 
 position: relative;
-padding: .5rem .75rem;
+padding: .5rem .5rem;
 padding-right: 48px;
 
 background-color: #fff;
-border: 1px solid #e1e2e6;
+border: 1px solid ${colors.grayLighter};
 border-radius: 2px;
 color: ${colors.black};
 ${font.default};

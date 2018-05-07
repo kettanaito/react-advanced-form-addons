@@ -21,7 +21,7 @@ background-color: #fff;
 border: 1px solid ${colors.grayLighter};
 border-radius: 50%;
 display: inline-block;
-margin: 0 .25rem -2px 0;
+margin: 1rem .25rem -2px 0;
 
 &:before {
   content: '';

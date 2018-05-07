@@ -35,10 +35,10 @@ ${({ validating }) => validating && `
 `;
 
 const StyledInput = styled.input`
-padding: .5rem .75rem;
+padding: .5rem .6rem;
 padding-right: 48px;
 
-border: 1px solid #e1e2e6;
+border: 1px solid ${colors.grayLighter};
 border-radius: 2px;
 color: ${colors.black};
 ${font.default};
