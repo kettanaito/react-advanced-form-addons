@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-advanced-form';
-import { Input, Select, Radio } from '../src';
+import { Input, Select, Radio, Checkbox } from '../src';
 
 export default class Example extends React.Component {
   render() {
@@ -16,6 +16,14 @@ export default class Example extends React.Component {
           label="Field two"
           initialValue="Initial value"
           required />
+
+        <Checkbox
+          name="newsletter"
+          label="Subscribe to newsletter"
+          checked />
+        <Checkbox
+          name="checkboxTwo"
+          label="Checkbox two" />
 
         <Select name="select" label="Gender">
           <option value="male">Male</option>

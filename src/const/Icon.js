@@ -24,6 +24,8 @@ export default function Icon({ name, animated, ...options }) {
   const svg = feather.icons[name].toSvg(options);
 
   return (
-    <IconContainer animated={ animated } dangerouslySetInnerHTML={{ __html: svg }} />
+    <IconContainer
+      animated={ animated }
+      dangerouslySetInnerHTML={{ __html: svg }} />
   );
 }
