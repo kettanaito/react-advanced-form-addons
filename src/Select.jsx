@@ -38,11 +38,12 @@ color: ${colors.black};
 ${font.default};
 height: 35px;
 width: 209px;
+transition: box-shadow .2s;
 
 &:focus {
   outline: none;
   border-color: ${colors.primary};
-  box-shadow: 0 0 3px rgba(0, 175, 232, .35);
+  box-shadow: 0 0 0 3px rgba(0, 175, 232, .25);
 }
 
 &:disabled {

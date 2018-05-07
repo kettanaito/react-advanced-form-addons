@@ -2,6 +2,7 @@ import React from 'react';
 import { createField, fieldPresets } from 'react-advanced-form';
 import styled from 'styled-components';
 import Label from './Label';
+import Hint from './Hint';
 import { Icon, colors, font, animations } from './const';
 
 const InputContainer = styled.div`
@@ -47,7 +48,7 @@ transition-duration: .2s;
 &:focus {
   outline: none;
   border-color: ${colors.primary};
-  box-shadow: 0 0 3px rgba(0, 175, 232, .35);
+  box-shadow: 0 0 0 3px rgba(0, 175, 232, .20);
 }
 
 &:disabled {
@@ -64,7 +65,7 @@ ${({ fieldState: { invalid } }) => invalid && `
 `;
 
 const ValidationStatus = styled.div`
-display: ${({ display }) => display ? 'flex' : 'none'};
+display: ${({ valid, invalid }) => (valid || invalid) ? 'flex' : 'none'};
 position: absolute;
 right: 0;
 top: 0;
@@ -102,7 +103,7 @@ animation: ${animations.slideDown} .2s;
 `;
 
 function Input(props) {
-  const { innerRef, name, label, disabled, fieldProps, fieldState } = props;
+  const { innerRef, name, label, hint, disabled, fieldProps, fieldState } = props;
   const { validating, validatedAsync, valid, invalid, errors } = fieldState;
 
   return (
@@ -125,7 +126,6 @@ function Input(props) {
           autoComplete="off" />
 
         <ValidationStatus
-          display={ valid || invalid }
           valid={ valid }
           invalid={ invalid }>
           { valid && (
@@ -146,8 +146,11 @@ function Input(props) {
               stroke={ colors.danger } />
           ) }
         </ValidationStatus>
-
       </InputWrapper>
+
+      { hint && (
+        <Hint>{ hint }</Hint>
+      ) }
 
       { invalid && errors && errors.map((error, i) => (
         <Message key={ i }>{ error }</Message>

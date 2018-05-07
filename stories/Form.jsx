@@ -9,6 +9,7 @@ export default class Example extends React.Component {
         <Input
           name="fieldOne"
           label="Field one"
+          hint="This field is required"
           required />
         <Input
           name="fieldTwo"
@@ -35,14 +36,14 @@ export default class Example extends React.Component {
           <Input
             name="firstName"
             label="First name"
-            required={({ fields }) => {
-              return !!fields.foo.lastName.value;
+            required={({ get }) => {
+              return !!get(['foo', 'lastName', 'value']);
             }} />
           <Input
             name="lastName"
             label="Last name"
-            required={({ fields }) => {
-              return !!fields.foo.firstName.value;
+            required={({ get }) => {
+              return !!get(['foo', 'firstName', 'value']);
             }} />
           </Field.Group>
       </Form>
