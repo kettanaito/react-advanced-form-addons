@@ -7,6 +7,8 @@ import { colors, Icon } from './const';
 const CheckboxLabel = styled(Label)`
 position: relative;
 padding-left: 1.45rem;
+
+color: ${colors.black};
 cursor: pointer;
 
 &::before {
@@ -22,20 +24,18 @@ cursor: pointer;
 
 & .icon {
   position: absolute;
-  left: 2px;
-  top: 2px;
+  left: 3px;
+  top: 3px;
   stroke-width: 3px;
 }
-`
 
-const StyledInput = styled.input`
-opacity: 0;
+${({ checked }) => checked && `
+  &::before {
+    border-color: ${colors.grayDark};
+  }
+`}
 
-&:checked + ${CheckboxLabel}::before {
-  border-color: ${colors.grayDark};
-}
-
-&:focus + ${CheckboxLabel} {
+${({ focused }) => focused && `
   &::before {
     border-color: ${colors.primary};
     box-shadow: 0 0 0 3px rgba(0, 175, 232, .20);
@@ -44,28 +44,42 @@ opacity: 0;
   & .icon {
     stroke: ${colors.primary};
   }
-}
+`}
 `
 
-function Checkbox({ fieldProps, label }) {
-  const { id, name, checked } = fieldProps;
+const CheckboxContainer = styled.div`
+margin-bottom: 1rem;
+`
+
+const StyledInput = styled.input`
+position: absolute;
+opacity: 0;
+`
+
+function Checkbox({ fieldProps, fieldState, label }) {
+  const { id, name, checked, required } = fieldProps;
+  const { focused } = fieldState;
   const fieldId = id || name;
 
   return (
-    <div>
+    <CheckboxContainer>
       <StyledInput id={ fieldId } { ...fieldProps } />
-      <CheckboxLabel htmlFor={ fieldId }>
+      <CheckboxLabel
+        htmlFor={ fieldId }
+        checked={ checked }
+        focused={ focused }
+        required={ required }>
         { checked && (
           <Icon
             class="icon"
             animated
             name="check"
-            height={ 14 }
-            width={ 14 } />
+            height={ 12 }
+            width={ 12 } />
         ) }
         { label }
       </CheckboxLabel>
-    </div>
+    </CheckboxContainer>
   );
 }
 

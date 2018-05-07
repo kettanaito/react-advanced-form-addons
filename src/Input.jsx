@@ -104,6 +104,7 @@ animation: ${animations.slideDown} .2s;
 
 function Input(props) {
   const { innerRef, name, label, hint, disabled, fieldProps, fieldState } = props;
+  const { required } = fieldProps;
   const { validating, validatedAsync, valid, invalid, errors } = fieldState;
 
   return (
@@ -112,7 +113,8 @@ function Input(props) {
         <Label
           htmlFor={ name }
           valid={ valid }
-          invalid={ invalid }>
+          invalid={ invalid }
+          required={ required }>
           { label }
         </Label>
       ) }

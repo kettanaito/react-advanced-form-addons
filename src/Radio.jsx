@@ -10,13 +10,13 @@ display: inline;
 margin-right: 1rem;
 cursor: pointer;
 vertical-align: middle;
-color: ${({ checked }) => checked ? colors.grayDarker : colors.gray};
+color: ${colors.black};
 `;
 
 const Checkmark = styled.span`
 position: relative;
-height: 12px;
-width: 12px;
+height: 14px;
+width: 14px;
 background-color: #fff;
 border: 1px solid ${colors.grayLighter};
 border-radius: 50%;
@@ -26,8 +26,8 @@ margin: 1rem .25rem -2px 0;
 &:before {
   content: '';
   position: absolute;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: ${colors.primary};
   border-radius: 50%;
   left: 0;
@@ -46,13 +46,20 @@ ${({ checked }) => checked && `
 `}
 `;
 
-function Radio({ label, fieldProps }) {
+function Radio({ label, fieldProps, fieldState }) {
   const { checked, value } = fieldProps;
+  const { focused } = fieldState;
 
   return (
-    <RadioLabel htmlFor={ value } checked={ checked }>
+    <RadioLabel
+      htmlFor={ value }
+      focused={ focused }
+      checked={ checked }>
       <Checkmark checked={ checked } />
-      <input id={ value } style={{ display: 'none' }} { ...fieldProps } />
+      <input
+        id={ value }
+        style={{ display: 'none' }}
+        { ...fieldProps } />
       { label }
     </RadioLabel>
   );
