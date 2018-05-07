@@ -1,6 +1,17 @@
 # React Advanced Form Addons
 A collection of tools dedicated for fast form prototyping using [React Advanced Form](https://github.com/kettanaito/react-advanced-form).
 
+## Components
+### Fields
+* `Input`
+* `Radio`
+* `Checkbox`
+* `Select`
+* `Textarea`
+
+### Other
+* `Button`
+
 ## Getting started
 
 ### Install
