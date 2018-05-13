@@ -95,7 +95,7 @@ width: 40px;
 `;
 
 const Message = styled.p`
-margin: .25rem 0 0;
+margin: .4rem 0 0;
 color: ${colors.danger};
 ${font.default};
 font-size: .8rem;
