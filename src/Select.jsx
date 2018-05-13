@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { createField, fieldPresets } from 'react-advanced-form';
 import Label from './Label';
-import { colors, font } from './const';
+import { spaces, colors, font } from './const';
 
 const SelectWrapper = styled.span`
 position: relative;
@@ -28,15 +28,14 @@ const StyledSelect = styled.select`
 -webkit-border-radius: 0px;
 
 position: relative;
-padding: .5rem .5rem;
+padding: ${spaces.inputPadding};
 padding-right: 48px;
 
 background-color: #fff;
 border: 1px solid ${colors.grayLighter};
-border-radius: 2px;
+border-radius: ${spaces.borderRadius};
 color: ${colors.black};
 ${font.default};
-height: 35px;
 width: 209px;
 transition: box-shadow .2s;
 

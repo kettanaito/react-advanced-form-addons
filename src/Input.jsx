@@ -3,7 +3,7 @@ import { createField, fieldPresets } from 'react-advanced-form';
 import styled from 'styled-components';
 import Label from './Label';
 import Hint from './Hint';
-import { Icon, colors, font, animations } from './const';
+import { Icon, spaces, colors, font, animations } from './const';
 
 const InputContainer = styled.div`
 margin: 1.5rem 0;
@@ -35,11 +35,11 @@ ${({ validating }) => validating && `
 `;
 
 const StyledInput = styled.input`
-padding: .5rem .6rem;
-padding-right: 48px;
+padding: ${spaces.inputPadding};
+padding-right: 50px;
 
 border: 1px solid ${colors.grayLighter};
-border-radius: 2px;
+border-radius: ${spaces.borderRadius};
 color: ${colors.black};
 ${font.default};
 transition-property: border box-shadow;
@@ -47,8 +47,10 @@ transition-duration: .2s;
 
 &:focus {
   outline: none;
-  border-color: ${colors.primary};
-  box-shadow: 0 0 0 3px rgba(0, 175, 232, .20);
+  border-color: ${({ fieldState: { invalid } }) => invalid ? colors.danger : colors.primary};
+  box-shadow: 0 0 0 3px ${({ fieldState: { invalid } }) => invalid
+    ? 'rgba(224, 77, 93, .2)'
+    : 'rgba(0, 175, 232, .2)'};
 }
 
 &:disabled {
@@ -72,7 +74,7 @@ top: 0;
 bottom: 0;
 align-items: center;
 justify-content: center;
-width: 35px;
+width: 40px;
 
 &:before {
   position: absolute;
@@ -134,8 +136,8 @@ function Input(props) {
             <Icon
               animated
               name="check"
-              height={ 14 }
-              width={ 14 }
+              height={ 16 }
+              width={ 16 }
               stroke={ colors.success } />
           ) }
 
@@ -143,8 +145,8 @@ function Input(props) {
             <Icon
               animated
               name="x"
-              height={ 14 }
-              width={ 14 }
+              height={ 16 }
+              width={ 16 }
               stroke={ colors.danger } />
           ) }
         </ValidationStatus>

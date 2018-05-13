@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { createField, fieldPresets } from 'react-advanced-form';
 import Label from './Label';
-import { colors, Icon } from './const';
+import { spaces, colors, Icon } from './const';
 
 const CheckboxLabel = styled(Label)`
 position: relative;
@@ -19,7 +19,7 @@ cursor: pointer;
   height: 1rem;
   width: 1rem;
   border: 1px solid ${colors.gray};
-  border-radius: 3px;
+  border-radius: ${spaces.borderRadius};
 }
 
 & .icon {
