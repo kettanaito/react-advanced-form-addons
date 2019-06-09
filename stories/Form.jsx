@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-advanced-form';
-import { Input, Select, Radio, Checkbox } from '../src';
+import { Input, Select, Radio, Checkbox, Textarea } from '../src';
 
 export default class Example extends React.Component {
   render() {
@@ -11,7 +11,7 @@ export default class Example extends React.Component {
           label="Field one"
           hint="This field is required"
           required />
-        <Input
+        <Textarea
           name="fieldTwo"
           label="Field two"
           initialValue="Initial value"
