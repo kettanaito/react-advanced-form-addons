@@ -1,10 +1,10 @@
 import React from 'react';
 import { createField, fieldPresets } from 'react-advanced-form';
+import { SingleDatePickerWrapper } from 'react-dates';
 import styled from 'styled-components';
 import Label from './Label';
 import Hint from './Hint';
 import { Icon, spaces, colors, font, animations } from './const';
-
 
 const InputContainer = styled.div`
 margin: 1.5rem 0;
@@ -35,37 +35,6 @@ ${({ validating }) => validating && `
 `}
 `;
 
-const StyledInput = styled.input`
-padding: ${spaces.inputPadding};
-padding-right: 50px;
-
-border: 1px solid ${colors.grayLighter};
-border-radius: ${spaces.borderRadius};
-color: ${colors.black};
-${font.default};
-transition-property: border box-shadow;
-transition-duration: .2s;
-
-&:focus {
-  outline: none;
-  border-color: ${({ fieldState: { invalid } }) => invalid ? colors.danger : colors.primary};
-  box-shadow: 0 0 0 3px ${({ fieldState: { invalid } }) => invalid
-    ? 'rgba(224, 77, 93, .2)'
-    : 'rgba(0, 175, 232, .2)'};
-}
-
-&:disabled {
-  color: ${colors.gray};
-}
-
-${({ fieldState: { valid } }) => valid && `
-  border-color: ${colors.success};
-`}
-
-${({ fieldState: { invalid } }) => invalid && `
-  border-color: ${colors.danger};
-`}
-`;
 
 const ValidationStatus = styled.div`
 display: ${({ valid, invalid }) => (valid || invalid) ? 'flex' : 'none'};
@@ -105,7 +74,7 @@ transition: color .2s;
 animation: ${animations.slideDown} .2s;
 `;
 
-function Input(props) {
+function DateCool(props) {
   const { innerRef, name, label, hint, disabled, fieldProps, fieldState } = props;
   const { required } = fieldProps;
   const { validating, validatedAsync, valid, invalid, errors } = fieldState;
@@ -123,11 +92,10 @@ function Input(props) {
       ) }
 
       <InputWrapper validating={ validating } validatedAsync={ validatedAsync }>
-        <StyledInput
+        <SingleDatePickerWrapper
           { ...fieldProps }
           innerRef={ innerRef }
           fieldState={ fieldState }
-          disabled={ validating || disabled }
           autoComplete="off" />
 
         <ValidationStatus
@@ -164,4 +132,8 @@ function Input(props) {
   );
 }
 
-export default createField(fieldPresets.input)(Input);
+export default createField({
+  /* "react-datepicker" uses "selected" prop instead of "value" */
+  valuePropName: 'selected',
+  initialValue: new Date()
+})(DateCool);

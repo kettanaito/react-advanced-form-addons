@@ -1,4 +1,5 @@
 export Input from './Input';
+export InputMask from './InputMask';
 export Radio from './Radio';
 export Checkbox from './Checkbox';
 export Select from './Select';

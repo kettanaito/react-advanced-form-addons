@@ -4,6 +4,11 @@ import { createField, fieldPresets } from 'react-advanced-form';
 import Label from './Label';
 import { spaces, colors, font } from './const';
 
+
+const SelectContainer = styled.div`
+margin: 1.5rem 0;
+`;
+
 const SelectWrapper = styled.span`
 position: relative;
 
@@ -52,7 +57,7 @@ transition: box-shadow .2s;
 
 function Select({ children, label, fieldProps }) {
   return (
-    <div>
+    <SelectContainer>
       { /* Label */ }
       { label && (
         <Label>{ label }</Label>
@@ -63,7 +68,7 @@ function Select({ children, label, fieldProps }) {
           { children }
         </StyledSelect>
       </SelectWrapper>
-    </div>
+    </SelectContainer>
   );
 }
 

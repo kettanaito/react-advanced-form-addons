@@ -1,4 +1,5 @@
 import React from 'react';
+import MaskInput from 'react-maskinput';
 import { createField, fieldPresets } from 'react-advanced-form';
 import styled from 'styled-components';
 import Label from './Label';
@@ -35,7 +36,12 @@ ${({ validating }) => validating && `
 `}
 `;
 
-const StyledInput = styled.input`
+
+// const SomeComponent = styled(({propIdontWant1, propIdontWant2, ...restProps} => <ComponentIWantToUseOrHTMLElement {...restProps}/>)`
+//  background-color: ${props => props.propIdontWant1}
+// `;
+
+const StyledInput = styled(({ fieldState, ...restProps }) => <MaskInput {...restProps} />)`
 padding: ${spaces.inputPadding};
 padding-right: 50px;
 
@@ -106,7 +112,7 @@ animation: ${animations.slideDown} .2s;
 `;
 
 function Input(props) {
-  const { innerRef, name, label, hint, disabled, fieldProps, fieldState } = props;
+  const { innerRef, name, label, hint, disabled, fieldProps, fieldState, mask } = props;
   const { required } = fieldProps;
   const { validating, validatedAsync, valid, invalid, errors } = fieldState;
 
@@ -125,6 +131,7 @@ function Input(props) {
       <InputWrapper validating={ validating } validatedAsync={ validatedAsync }>
         <StyledInput
           { ...fieldProps }
+          mask={mask}
           innerRef={ innerRef }
           fieldState={ fieldState }
           disabled={ validating || disabled }

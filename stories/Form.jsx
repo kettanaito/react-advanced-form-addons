@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-advanced-form';
-import { Input, Select, Radio, Checkbox, Textarea } from '../src';
+import { Input, Select, Radio, Checkbox, Textarea, InputMask } from '../src';
 
 export default class Example extends React.Component {
   render() {
@@ -9,6 +9,12 @@ export default class Example extends React.Component {
         <Input
           name="fieldOne"
           label="Field one"
+          hint="This field is required"
+          required />
+        <InputMask
+          name="codl"
+          label="Field one"
+          mask="0-0000-0000"
           hint="This field is required"
           required />
         <Textarea
@@ -29,7 +35,6 @@ export default class Example extends React.Component {
           <option value="male">Male</option>
           <option value="female">Female</option>
         </Select>
-
         <Radio
           name="newRadio"
           label="Book"
